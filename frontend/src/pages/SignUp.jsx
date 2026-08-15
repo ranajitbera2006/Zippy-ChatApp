@@ -4,9 +4,13 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import GenderCheckBox from "../components/GenderCheckBox";
+import useSignUp from "../hooks/useSignUp";
+import toast from "react-hot-toast";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { loading, signUp } = useSignUp();
   const [input, setInput] = useState({
     fullname: "",
     username: "",
@@ -25,23 +29,18 @@ const SignUp = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!input.gender) {
-      alert("Please select your gender!");
-      return;
+    const success = await signUp(input);
+    if (success) {
+      setInput({
+        fullname: "",
+        username: "",
+        gender: "",
+        password: "",
+        confirmPassword: "",
+      });
+      toast.success("Your account has been created successfully!");
+      navigate("/login");
     }
-    if (input.password !== input.confirmPassword) {
-      alert("Password and confirm password should match!");
-      return;
-    }
-    console.log(input);
-    setInput({
-      fullname: "",
-      username: "",
-      gender: "",
-      password: "",
-      confirmPassword: "",
-    });
-    navigate("/login");
   };
   return (
     <div className="gradient-background min-h-screen ">
@@ -70,6 +69,7 @@ const SignUp = () => {
                 name="fullname"
                 id="fullname"
                 type="text"
+                autoComplete="name"
                 placeholder="Enter name..."
                 required
                 className="w-full px-2 focus:outline-none"
@@ -88,6 +88,7 @@ const SignUp = () => {
                 name="username"
                 id="username"
                 type="email"
+                autoComplete="email"
                 placeholder="Enter username or email..."
                 required
                 className="w-full px-2 focus:outline-none"
@@ -110,6 +111,7 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 id="password"
+                autoComplete="new-password"
                 placeholder="Create a new password..."
                 required
                 className="w-full px-2 focus:outline-none"
@@ -128,6 +130,7 @@ const SignUp = () => {
                 type="password"
                 name="confirmPassword"
                 id="confirmPassword"
+                autoComplete="new-password"
                 placeholder="Confirm Your password..."
                 required
                 className="w-full px-2 focus:outline-none"
@@ -137,8 +140,13 @@ const SignUp = () => {
               <button
                 type="submit"
                 className="bg-primary px-3 py-1 rounded-2xl text-primary-foreground cursor-pointer hover:bg-emerald-700 hover:shadow-2xl transition-shadow"
+                disabled={loading}
               >
-                Signup
+                {loading ? (
+                  <AiOutlineLoading3Quarters className="animate-spin text-lg" />
+                ) : (
+                  "Sign Up"
+                )}
               </button>
             </div>
             <div>

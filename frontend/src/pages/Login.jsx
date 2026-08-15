@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import useLogin from "../hooks/useLogin";
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = async () => {
+
+  const {loading,logIn} = useLogin();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(username, password);
+    await logIn({username,password})
+    console.log(username, password);
   };
   return (
     <div className="gradient-background min-h-screen ">
@@ -28,11 +35,11 @@ const Login = () => {
                 <FaUserCircle className="w-5 h-5" />
               </button>
               <input
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                name="email"
-                id="email"
-                type="email"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                name="username"
+                id="username"
+                type="text"
                 placeholder="Enter username or email..."
                 required
                 className="w-full px-2 focus:outline-none"
@@ -60,8 +67,9 @@ const Login = () => {
               <button
                 type="submit"
                 className="bg-primary px-3 py-1 rounded-2xl text-primary-foreground cursor-pointer hover:bg-emerald-700 hover:shadow-2xl transition-shadow"
+                disabled={loading}
               >
-                Login
+                {loading? <span className="loading loading-spinner"/> :"Login"}
               </button>
             </div>
             <div>
