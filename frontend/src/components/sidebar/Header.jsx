@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import Searchbar from "./Searchbar";
 const Header = () => {
   return (
@@ -7,6 +7,6 @@ const Header = () => {
       <Searchbar />
     </div>
   );
-};
+}
 
-export default Header;
+export default Header

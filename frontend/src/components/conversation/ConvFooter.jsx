@@ -4,9 +4,13 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Searchbar from "../sidebar/Searchbar";
 import { BsSendFill } from "react-icons/bs";
+import useSendMessage from "../../hooks/useSendMessage";
+import useSoundEffect from "../../hooks/useSoundEffect";
 
 const ConvFooter = () => {
+  const playSound = useSoundEffect("notification/popup");
   const [message, setMessage] = useState("");
+  const { loading, sendMessage } = useSendMessage();
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -16,8 +20,11 @@ const ConvFooter = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!message.trim()) return;
-    console.log(message);
-    setMessage("");
+    const success = await sendMessage({ message });
+    if (success) {
+      playSound();
+      setMessage("");
+    }
   };
   return (
     <div className="my-2.5  px-3 shrink-0 z-40">
@@ -34,8 +41,13 @@ const ConvFooter = () => {
         <button
           type="submit"
           className="rounded-full w-12 border-none border bg-green-600 flex justify-center items-center cursor-pointer"
+          
         >
-          <BsSendFill className="text-xl" />
+          {loading ? (
+            <span className="loading loading-spinner text-xl" />
+          ) : (
+            <BsSendFill className="text-xl" />
+          )}
         </button>
       </form>
     </div>

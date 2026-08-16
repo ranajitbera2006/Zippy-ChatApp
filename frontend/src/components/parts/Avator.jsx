@@ -1,18 +1,15 @@
-import React from "react";
-
-const Avator = () => {
+import React from 'react'
+import { CgProfile } from "react-icons/cg";
+const Avator = ({profilePic}) => {
   return (
     <div>
       <div className="avatar avatar-online">
         <div className="w-11 rounded-full">
-          <img
-            alt="user avator"
-            src="https://img.daisyui.com/images/profile/demo/gordon@192.webp"
-          />
+          <img alt={<CgProfile/>} src={profilePic} />
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default Avator;
+export default Avator

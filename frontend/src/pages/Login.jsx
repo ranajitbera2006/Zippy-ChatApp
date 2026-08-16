@@ -43,6 +43,7 @@ const Login = () => {
                 placeholder="Enter username or email..."
                 required
                 className="w-full px-2 focus:outline-none"
+                
               />
             </div>
             <div className="border w-full max-w-md flex justify-between rounded-xl">
@@ -61,6 +62,7 @@ const Login = () => {
                 placeholder="Enter Your password..."
                 required
                 className="w-full px-2 focus:outline-none"
+                
               />
             </div>
             <div className="text-center">
