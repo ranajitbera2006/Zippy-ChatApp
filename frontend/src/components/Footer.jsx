@@ -3,6 +3,7 @@ import { BsChatLeftDotsFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import LogoutBtn from "./parts/LogoutBtn";
 import ChatBtn from "./parts/ChatBtn";
+import DeleteAccountBtn from "./parts/DeleteAccountBtn";
 const Footer = () => {
 
   return (
@@ -10,6 +11,7 @@ const Footer = () => {
       <div className="flex justify-around   text-xl ">
         <ChatBtn />
         <LogoutBtn />
+        <DeleteAccountBtn/>
       </div>
     </div>
   );

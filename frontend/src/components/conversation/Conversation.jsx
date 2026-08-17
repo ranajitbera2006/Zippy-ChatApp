@@ -4,7 +4,7 @@ import Messages from "../messages/Messages";
 import ConvFooter from "./ConvFooter";
 import useConversation from "../../zustand/useConversation";
 
-const Conversation = () => {
+const Conversation = ({ onBack }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   return (
     <div className="px-4 pt-2 flex flex-col h-screen overflow-hidden border-r border-slate-700">
@@ -12,7 +12,7 @@ const Conversation = () => {
         <NoChatSelected />
       ) : (
         <>
-          <ConvHeader selectedContact={selectedConversation} />
+          <ConvHeader selectedContact={selectedConversation} onBack={onBack} />
           <main className="flex-1 overflow-y-auto min-h-0 py-2 ">
             <Messages />
           </main>

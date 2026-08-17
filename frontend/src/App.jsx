@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
 import RedirectPage from "./pages/RedirectWelcome";
 import { useState } from "react";
+import Farewell from "./pages/Farewell";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -24,6 +25,10 @@ function App() {
         <Route
           path="/login"
           element={authUser ? <Navigate to="/" replace /> : <Login />}
+        />
+        <Route
+          path="/farewell"
+          element={!authUser ? <Navigate to="/login" replace /> : <Farewell />}
         />
         <Route
           path="/signup"

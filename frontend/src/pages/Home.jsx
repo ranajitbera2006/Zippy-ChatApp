@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "../components/sidebar/Sidebar";
 import Conversation from "../components/conversation/Conversation";
+import useConversation from "../zustand/useConversation";
 
 const Home = () => {
-  // Store the selected chat/user (null if no conversation is open)
-  const [selectedConversation, setSelectedConversation] = useState(null);
+
+  const {selectedConversation, setSelectedConversation} = useConversation()
 
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#111b21] flex justify-center items-center">
@@ -16,7 +17,7 @@ const Home = () => {
             selectedConversation ? "hidden md:flex" : "flex"
           }`}
         >
-          <Sidebar onSelectConversation={setSelectedConversation} />
+          <Sidebar/>
         </div>
 
         {/* Right Panel: Active Chat */}
@@ -26,7 +27,6 @@ const Home = () => {
           }`}
         >
           <Conversation
-            selectedConversation={selectedConversation}
             onBack={() => setSelectedConversation(null)}
           />
         </div>

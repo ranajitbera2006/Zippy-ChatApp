@@ -23,14 +23,20 @@ export const sendMessageController = async (req, res) => {
     });
 
     if (newMessage) {
-       conversation.messages.push(newMessage._id);
+      conversation.messages.push(newMessage._id);
     }
 
     await Promise.all([conversation.save(), newMessage.save()]);
 
     const receiverSocketId = getReceiverSocketId(receiverId);
+    const senderSocketId = getReceiverSocketId(senderId);
+
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage);
+    }
+
+    if (senderSocketId) {
+      io.to(senderSocketId).emit("newMessage", newMessage);
     }
 
     res.status(201).json(newMessage);
@@ -46,15 +52,33 @@ export const getMessageController = async (req, res) => {
     const senderId = req.user._id;
     const conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverToChatId] },
-    }).populate("messages")
+    }).populate("messages");
     if (!conversation) {
       return res.status(200).json([]);
     }
     const messages = conversation.messages;
     res.status(200).json(messages);
-
   } catch (error) {
     console.log("Error in getMessageController ", error.message);
+    res.status(500).json({ error: "Internal server error!" });
+  }
+};
+
+export const deleteMessageController = async (req, res) => {
+  try {
+    const messageId = req.params.id;
+    const deletedMessage = await Message.findByIdAndDelete(messageId);
+    if (!deletedMessage) {
+      return res.status(404).json({
+        error: "Message Not found",
+      });
+    }
+    res.status(200).json({
+      message: "Message deleted successfully!",
+      deletedMessage,
+    });
+  } catch (error) {
+    console.log("Error in deleteMessageController ", error.message);
     res.status(500).json({ error: "Internal server error!" });
   }
 };

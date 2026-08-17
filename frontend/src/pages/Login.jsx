@@ -11,9 +11,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
     await logIn({username,password})
-    console.log(username, password);
   };
   return (
     <div className="gradient-background min-h-screen ">

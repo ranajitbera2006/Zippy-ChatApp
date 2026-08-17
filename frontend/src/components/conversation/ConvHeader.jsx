@@ -2,18 +2,23 @@ import React from "react";
 import Searchbar from "../sidebar/Searchbar";
 import { GrContact } from "react-icons/gr";
 import Avator from "../parts/Avator";
-import { Link } from "react-router-dom";
 
-const ConvHeader = ({ selectedContact }) => {
+
+const ConvHeader = ({ selectedContact, onBack }) => {
   return (
     <div className="pb-5 flex items-center justify-between">
       <div className=" space-x-3 flex  items-center">
-        <Avator profilePic={selectedContact.profilePic} />
+        <Avator user={selectedContact} />
         <h3 className="font-serif">{selectedContact.fullname}</h3>
       </div>
-      <Link to="/conversations" aria-label="Chats">
+      <button
+        title="Contact list"
+        onClick={onBack}
+        aria-label="Back to contacts"
+        className="md:hidden w-16 h-10 rounded items-center  flex justify-center hover:bg-black cursor-pointer"
+      >
         <GrContact className="text-xl cursor-pointer" />
-      </Link>
+      </button>
     </div>
   );
 };

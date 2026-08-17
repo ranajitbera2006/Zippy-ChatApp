@@ -8,6 +8,7 @@ import useListenMessages from "../../hooks/useListenMessages";
 import useConversation from "../../zustand/useConversation";
 import useSendMessage from "../../hooks/useSendMessage";
 
+
 const Messages = () => {
   const { loading, messages } = useGetMessages();
   useListenMessages();
@@ -20,7 +21,7 @@ const Messages = () => {
 
   return (
     <div className="flex flex-col">
-      
+
       {!loading &&
         messages.length > 0 &&
         messages.map((message, index) => {
@@ -36,7 +37,6 @@ const Messages = () => {
           return (
             <React.Fragment key={message._id}>
               {showDateBar && <DateSeparator date={message.createdAt} />}
-              
 
               <div ref={isLastMessage ? lastMessageRef : null}>
                 <Message message={message} />
@@ -52,9 +52,7 @@ const Messages = () => {
   );
 };
 
-
 export default Messages;
-
 
 const NoMessagesYet = () => {
   const { selectedConversation } = useConversation();
@@ -64,15 +62,13 @@ const NoMessagesYet = () => {
   }
   return (
     <div className="flex flex-col items-center justify-center h-full text-center px-4">
-     
+
       <div className="text-5xl mb-4 animate-bounce">👋</div>
 
-      
       <h3 className="text-lg font-semibold text-gray-100 mb-1">
         No messages here yet
       </h3>
 
-      
       <p className="text-sm text-gray-400 max-w-xs mb-6">
         Send a message or tap below to say hello to{" "}
         <span className="text-gray-200 font-medium">
@@ -91,3 +87,63 @@ const NoMessagesYet = () => {
     </div>
   );
 };
+
+// const Messages = () => {
+//   const { loading, messages } = useGetMessages();
+//   useListenMessages();
+//   let lastMessageRef = useRef();
+//   useEffect(() => {
+//     setTimeout(() => {
+//       lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+//     }, 100);
+//   }, [messages]);
+
+//   return (
+//     <div className="flex flex-col">
+//       {!loading &&
+//         messages.length > 0 &&
+//         messages.map((message, index) => {
+//           const currentDate = new Date(message.createdAt).toDateString();
+
+//           const previousDate =
+//             index > 0
+//               ? new Date(messages[index - 1].createdAt).toDateString()
+//               : null;
+
+//           const showDateBar = currentDate !== previousDate;
+//           const isLastMessage = index === messages.length - 1;
+//           return (
+//             <React.Fragment key={message._id}>
+//               {showDateBar && <DateSeparator date={message.createdAt} />}
+
+//               <div ref={isLastMessage ? lastMessageRef : null}>
+//                 <Message message={message} />
+//               </div>
+//             </React.Fragment>
+//           );
+//         })}
+
+//       {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
+
+//       {!loading && messages.length === 0 && <NoMessagesYet />}
+//     </div>
+//   );
+// };
+
+// export default Messages;
+
+// const NoMessagesYet = () => {
+//   return (
+//     <div className="flex flex-col items-center justify-center h-full text-center p-6 text-slate-300">
+//       <p className="font-medium text-white">No messages here yet...</p>
+
+//       <span className="text-4xl mb-3"></span>
+
+//       <p className="text-sm">
+//         Send a message or say{" "}
+//         <FaHandsClapping className="inline text-4xl mb-3 text-amber-400" />
+//         to start the conversation!
+//       </p>
+//     </div>
+//   );
+// };

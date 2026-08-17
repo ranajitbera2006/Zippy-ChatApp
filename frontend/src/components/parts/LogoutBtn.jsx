@@ -12,6 +12,7 @@ const LogoutBtn = () => {
   };
   return (
     <button
+      title="Logout"
       className=" w-12 h-8 rounded items-center  flex justify-center hover:bg-background cursor-pointer"
       onClick={handleOnClick}
     >

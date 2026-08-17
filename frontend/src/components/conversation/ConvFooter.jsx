@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import Searchbar from "../sidebar/Searchbar";
 import { BsSendFill } from "react-icons/bs";
 import useSendMessage from "../../hooks/useSendMessage";
-import useSoundEffect from "../../hooks/useSoundEffect";
+// import useSoundEffect from "../../hooks/useSoundEffect";
 
 const ConvFooter = () => {
-  const playSound = useSoundEffect("notification/popup");
+  // const playSound = useSoundEffect("notification/popup");
   const [message, setMessage] = useState("");
   const { loading, sendMessage } = useSendMessage();
   const handleKeyDown = (e) => {
@@ -22,7 +22,7 @@ const ConvFooter = () => {
     if (!message.trim()) return;
     const success = await sendMessage({ message });
     if (success) {
-      playSound();
+      // playSound();
       setMessage("");
     }
   };
