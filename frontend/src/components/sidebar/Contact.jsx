@@ -2,11 +2,13 @@ import React from "react";
 import Avator from "../parts/Avator";
 import useConversation from "../../zustand/useConversation";
 import { useAuthContext } from "../../context/AuthContext";
+import { dateFormator } from "../../utils/dateFormator";
+
 
 const Contact = ({ contact, lastIdx }) => {
   const { authUser } = useAuthContext();
   const { selectedConversation, setSelectedConversation } = useConversation();
-
+ 
   const isSelectedConversation = selectedConversation?._id === contact._id;
 
   const isAuth = authUser._id === contact._id;
@@ -33,16 +35,7 @@ const Contact = ({ contact, lastIdx }) => {
           </div>
 
           <span className="text-xs text-gray-400 ml-2 whitespace-nowrap">
-            {contact.lastMessage
-              ? new Date(
-                  contact.lastMessage.updatedAt ||
-                    contact.lastMessage.createdAt,
-                ).toLocaleTimeString("en-IN", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: true,
-                })
-              : ""}
+            {contact.lastMessage ? dateFormator(contact.lastMessage.updatedAt) : ""}
           </span>
         </div>
       </div>
@@ -53,3 +46,5 @@ const Contact = ({ contact, lastIdx }) => {
 };
 
 export default Contact;
+
+// 
