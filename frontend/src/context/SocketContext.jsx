@@ -21,7 +21,7 @@ export const SocketContextProvider = ({ children }) => {
       return;
     }
 
-    const socket = io("http://localhost:5000", {
+    const socket = io("https://zippy-4d46.onrender.com", {
       query: {
         userId: authUser._id,
       },

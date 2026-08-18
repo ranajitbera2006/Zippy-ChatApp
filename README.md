@@ -16,7 +16,7 @@
 
   <!-- Quick Action Buttons -->
   <p>
-    <a href="https://basicchatapp-xi6m.onrender.com" target="_blank">
+    <a href="https://zippy-4d46.onrender.com" target="_blank">
       <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Zippy-007ACC?style=for-the-badge" alt="Live Demo" />
     </a>
     <a href="https://github.com/ranajitbera2006/Zippy-ChatApp" target="_blank">
@@ -37,7 +37,7 @@
 
 | Resource | Link |
 | :--- | :--- |
-| **🚀 Live Application** | [https://zippy-xt6m.onrender.com](https://zippy-xt6m.onrender.com) |
+| **🚀 Live Application** | [https://zippy-4d46.onrender.com](https://zippy-4d46.onrender.com) |
 | **📦 GitHub Repository** | [https://github.com/ranajitbera2006/Zippy-ChatApp](https://github.com/ranajitbera2006/Zippy-ChatApp) |
 
 ---
