@@ -1,14 +1,15 @@
 {
-  "name": "chatapp",
+  "name": "Zippy",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a real time chat app.",
   "license": "ISC",
   "author": "Ranajit Bera",
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

@@ -1,85 +1,98 @@
 <div align="center">
 
-# ⚡ Zippy
+  <!-- Project Header -->
+  <h1>⚡ Zippy — Real-Time Chat App</h1>
+  <p>A sleek, full-stack real-time messaging application built with the <strong>MERN Stack</strong>, <strong>Socket.io</strong>, and <strong>Zustand</strong>.</p>
 
-### *A Real-Time, Seamless Messaging Experience*
+  <!-- Badges -->
+  <p>
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white" alt="Socket.io" />
+    <img src="https://img.shields.io/badge/Zustand-443E38?style=for-the-badge&logo=react&logoColor=white" alt="Zustand" />
+  </p>
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![daisyUI](https://img.shields.io/badge/daisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)](https://daisyui.com/)
-[![Zustand](https://img.shields.io/badge/Zustand-443e38?style=for-the-badge&logo=react&logoColor=white)](https://zustand-demo.pmnd.rs/)
+  <!-- Quick Action Buttons -->
+  <p>
+    <a href="https://basicchatapp-xi6m.onrender.com" target="_blank">
+      <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Zippy-007ACC?style=for-the-badge" alt="Live Demo" />
+    </a>
+    <a href="https://github.com/ranajitbera2006/Zippy-ChatApp" target="_blank">
+      <img src="https://img.shields.io/badge/📂_GitHub-Source_Code-181717?style=for-the-badge&logo=github" alt="GitHub Repo" />
+    </a>
+  </p>
 
-<p align="center">
-  <a href="#-highlights">Highlights</a> •
-  <a href="#-features">Features</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-project-architecture">Architecture</a> •
-  <a href="#-getting-started">Getting Started</a> •
-  <a href="#-environment-variables">Environment</a>
-</p>
-
----
+  <!-- App Screenshot -->
+  <br />
+  <img src="app-preview.png" alt="Zippy Real-time Chat UI Preview" width="850" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+  <br />
 
 </div>
 
-## 🌟 Highlights
+---
 
-**Zippy** is a full-stack real-time chat application engineered for fast, instant communication. Powered by **Express.js**, **Socket.io**, and lightweight client-side state management with **Zustand**, Zippy pairs reliable performance with a modern interface built using **Tailwind CSS** and **daisyUI**.
+## 🔗 Quick Access
+
+| Resource | Link |
+| :--- | :--- |
+| **🚀 Live Application** | [https://zippy-xt6m.onrender.com](https://zippy-xt6m.onrender.com) |
+| **📦 GitHub Repository** | [https://github.com/ranajitbera2006/Zippy-ChatApp](https://github.com/ranajitbera2006/Zippy-ChatApp) |
 
 ---
 
 ## ✨ Features
 
-* ⚡ **Real-Time Messaging:** Instant bi-directional message synchronization via **Socket.io**.
-* 🚀 **Robust REST API:** Powered by **Express.js** for secure routing, controllers, and middleware authentication.
-* 🧠 **Reactive State Management:** Global store architecture powered by **Zustand**.
-* 🎨 **daisyUI & Tailwind Styling:** Sleek chat bubbles, loading spinners, dialog modals, and theme support.
-* 🗓️ **Smart Date Dividers:** Clean timeline segmentation with automatic date grouping.
-* 📜 **Smooth Auto-Scroll:** Chat automatically pins to the latest message on arrival.
-* 💀 **Skeleton Loaders:** Fluid UX with shimmer states and daisyUI loading indicators during data fetching.
-* 🛡️ **Account Control & Safeguards:** Clean account deletion flows and farewell confirmation modals.
+* ⚡ **Instant Real-Time Chat:** Low-latency bi-directional messaging powered by **Socket.io**.
+* 🟢 **Online/Offline Tracking:** Live indicators showing user presence in real time.
+* 🔐 **Secure Authentication:** JSON Web Tokens (JWT) stored in secure `HTTP-only` cookies with `bcryptjs` password hashing.
+* 🐻 **State Management:** Fast and lightweight global client state management using **Zustand**.
+* 🔍 **User Search & Sidebar:** Effortlessly discover, search, and initiate conversations with users.
+* 💬 **Chat Persistence:** Full conversation history securely stored and queried from **MongoDB**.
+* 📱 **Dark Mode UI:** Responsive, modern design with custom user avatars and chat bubbles.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### **Frontend**
-* **React** (Hooks, Context, Functional Components)
-* **Zustand** (Global Store for active conversations & messages)
-* **Tailwind CSS & daisyUI** (Component styling, themes, and utility classes)
-* **React Icons** (UI icons)
-* **Socket.io-client** (Real-time WebSocket events)
+* **React.js** (Vite)
+* **Zustand** (Global state management)
+* **Socket.io Client** (Real-time WebSocket events)
+* **Tailwind CSS / Pure CSS** (Responsive dark theme styling)
 
 ### **Backend**
-* **Node.js** (JavaScript Runtime Environment)
-* **Express.js** (REST API routing, middleware, and request handling)
-* **Socket.io** (WebSocket server for live chat synchronization)
-* **MongoDB & Mongoose** (NoSQL Database & Schema Modeling)
-* **JWT & Cookie-Parser** (Token-based authentication & route security)
+* **Node.js** & **Express.js (v5)** (REST APIs & Server routing)
+* **Socket.io** (WebSocket server management & broadcast events)
+* **MongoDB** & **Mongoose** (NoSQL Database & Object Modeling)
+* **Cookie-Parser** & **JSON Web Tokens (JWT)** (Session authorization)
+* **Bcrypt.js** (Password encryption)
 
 ---
 
-## 📂 Project Architecture
+## 📁 Project Structure
 
-```plaintext
-zippy/
+```text
+Zippy-ChatApp/
+├── backend/
+│   ├── db/                 # Database connection (connect.js)
+│   ├── models/             # Mongoose schemas (User, Message, Conversation)
+│   ├── routes/             # Express API routes (auth, message, user)
+│   ├── socket/             # Socket.io connection logic & event listeners
+│   └── server.js           # Server entry point & static file serving
+│
 ├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── components/      # UI components (Message, DateSeparator, Farewell, etc.)
-│   │   ├── hooks/           # Custom hooks (useGetMessages, useListenMessages, etc.)
-│   │   ├── skeleton/        # Skeleton loader components
-│   │   ├── zustand/         # Global state stores (useConversation)
-│   │   └── utils/           # Helper formatters & date utilities
+│   │   ├── components/     # UI components (Sidebar, MessageContainer, MessageInput)
+│   │   ├── zustand/        # Global state stores
+│   │   ├── hooks/          # Custom hooks
+│   │   ├── pages/          # Login, SignUp, Home pages
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── dist/               # Production frontend build
 │   └── package.json
-└── backend/
-    ├── controllers/         # Express Route Handlers & Business Logic
-    ├── middleware/          # JWT Protect Route Middleware
-    ├── models/              # MongoDB Schemas (Message, Conversation, User)
-    ├── routes/              # Express API Route Declarations
-    ├── socket/              # Socket.io connection & event logic
-    ├── server.js            # Express server initialization & entry point
-    └── package.json
+│
+├── package.json            # Root monorepo configuration & build scripts
+└── README.md
