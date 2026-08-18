@@ -33,15 +33,15 @@ const ConvFooter = () => {
           name="message"
           rows={2}
           id="message"
-          className="w-full px-2 focus:outline-none glass rounded-2xl resize-none no-scrollbar overflow-auto"
+          className="w-full px-4 py-3 text-white placeholder:text-gray-400 focus:outline-none glass rounded-2xl resize-none no-scrollbar overflow-auto"
           onChange={(e) => setMessage(e.target.value)}
           value={message}
           onKeyDown={handleKeyDown}
+          placeholder="Type your message..."
         ></textarea>
         <button
           type="submit"
           className="rounded-full w-12 border-none border bg-green-600 flex justify-center items-center cursor-pointer"
-          
         >
           {loading ? (
             <span className="loading loading-spinner text-xl" />
